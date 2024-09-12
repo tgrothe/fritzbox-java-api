@@ -1,17 +1,17 @@
 /**
  * A Java API for managing FritzBox HomeAutomation
  * Copyright (C) 2017 Christoph Pirkl <christoph at users.sourceforge.net>
- *
+ * <p>
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- *
+ * <p>
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- *
+ * <p>
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -70,6 +70,12 @@ public class Hkr {
 
     @Element(name = "holidayactive", required = false)
     private boolean holidayactive;
+
+    @Element(name = "adaptiveHeatingActive", required = false)
+    private boolean adaptiveHeatingActive;
+
+    @Element(name = "adaptiveHeatingRunning", required = false)
+    private boolean adaptiveHeatingRunning;
 
     public int getTist() {
         return tist;
@@ -199,10 +205,50 @@ public class Hkr {
         this.holidayactive = holidayactive;
     }
 
+    public boolean isAdaptiveHeatingActive() {
+        return adaptiveHeatingActive;
+    }
+
+    public void setAdaptiveHeatingActive(boolean adaptiveHeatingActive) {
+        this.adaptiveHeatingActive = adaptiveHeatingActive;
+    }
+
+    public boolean isAdaptiveHeatingRunning() {
+        return adaptiveHeatingRunning;
+    }
+
+    public void setAdaptiveHeatingRunning(boolean adaptiveHeatingRunning) {
+        this.adaptiveHeatingRunning = adaptiveHeatingRunning;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "Hkr [tist=" + tist + ", tsoll=" + tsoll + ", tabsenk=" + tabsenk + ", komfort=" + komfort + ", lock="
+//                + lock + ", devicelock=" + devicelock + ", errorcode=" + errorcode + ", batterylow=" + batterylow
+//                + ", nextChange=" + nextChange + "]";
+//    }
+
     @Override
     public String toString() {
-        return "Hkr [tist=" + tist + ", tsoll=" + tsoll + ", tabsenk=" + tabsenk + ", komfort=" + komfort + ", lock="
-                + lock + ", devicelock=" + devicelock + ", errorcode=" + errorcode + ", batterylow=" + batterylow
-                + ", nextChange=" + nextChange + "]";
+        return "Hkr{" +
+                "tist=" + tist +
+                ", tsoll=" + tsoll +
+                ", tabsenk=" + tabsenk +
+                ", komfort=" + komfort +
+                ", lock=" + lock +
+                ", devicelock=" + devicelock +
+                ", errorcode=" + errorcode +
+                ", windowopenactiv=" + windowopenactiv +
+                ", windowopenactiveendtime=" + windowopenactiveendtime +
+                ", boostactive=" + boostactive +
+                ", boostactiveendtime=" + boostactiveendtime +
+                ", batterylow=" + batterylow +
+                ", battery=" + battery +
+                ", nextChange=" + nextChange +
+                ", summeractive=" + summeractive +
+                ", holidayactive=" + holidayactive +
+                ", adaptiveHeatingActive=" + adaptiveHeatingActive +
+                ", adaptiveHeatingRunning=" + adaptiveHeatingRunning +
+                '}';
     }
 }
