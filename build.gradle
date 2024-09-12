@@ -11,7 +11,7 @@ plugins {
 }
 
 group 'com.github.kaklakariada'
-version = '1.7.0'
+version = ''
 
 java {
     toolchain {
@@ -49,6 +49,14 @@ dependencies {
     
     testImplementation 'org.mockito:mockito-core:5.6.0'
     testImplementation 'org.assertj:assertj-core:3.24.2'
+}
+
+jar {
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    exclude('META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA')
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 license {
